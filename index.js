@@ -47,6 +47,21 @@ app.post('/api/blogs', (request, response) => {
   })
 })
 
+app.put('/api/blogs/:id', (request, response, next) => {
+    const { title, author, url } = request.body
+
+    Blog.findByIdAndUpdate(
+        request.params.id,
+        { title, author, url },
+        { new: true, runValidators: true, context: 'query' }
+    )
+    .then(updatedPerson => {
+        response.json(updatedPerson)
+    })
+    .catch(error => next(error))
+
+})
+
 const unknownEndpoint = ((request, response) => {
     response.status(404).send({ error: 'Unknown Endpoint' })
 })
