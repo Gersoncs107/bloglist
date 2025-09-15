@@ -15,7 +15,7 @@ app.get('/info', (req, res) => {
         .then(count => {
             res.send(`
                 <div>
-                    <h2>Blog has info for ${count} blogs</h2>
+                    <h2>The list has info for ${count} blogs</h2>
                     <p>${new Date()}</p>
                 </div>
             `)
