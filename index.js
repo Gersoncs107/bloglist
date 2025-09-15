@@ -10,6 +10,19 @@ app.get('/', (request, response) => {
   response.send('<h1>Blog Working!</h1>')
 })
 
+app.get('/info', (req, res) => {
+    Blog.countDocuments({})
+        .then(count => {
+            res.send(`
+                <div>
+                    <h2>Blog has info for ${count} blogs</h2>
+                    <p>${new Date()}</p>
+                </div>
+            `)
+        })
+})
+
+
 app.get('/api/blogs', (request, response) => {
   Blog.find({}).then(blogs => {
     response.json(blogs)
