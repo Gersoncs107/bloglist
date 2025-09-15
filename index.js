@@ -55,8 +55,8 @@ app.put('/api/blogs/:id', (request, response, next) => {
         { title, author, url },
         { new: true, runValidators: true, context: 'query' }
     )
-    .then(updatedPerson => {
-        response.json(updatedPerson)
+    .then(updatedBlog => {
+        response.json(updatedBlog)
     })
     .catch(error => next(error))
 
