@@ -22,7 +22,6 @@ app.get('/info', (req, res) => {
         })
 })
 
-
 app.get('/api/blogs', (request, response) => {
   Blog.find({}).then(blogs => {
     response.json(blogs)
