@@ -47,7 +47,7 @@ blogsRouter.delete('/:id', (request, response, next) => {
 blogsRouter.put('/:id', (request, response, next) => {
   const body = request.body
 
-  const note = {
+  const blog = {
     title: body.title,
     author: body.author,
     url: body.url,
