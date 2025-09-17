@@ -9,9 +9,9 @@ blogsRouter.get('/', (request, response) => {
 
 blogsRouter.get('/:id', (request, response, next) => {
   Blog.findById(request.params.id)
-    .then(note => {
-      if (note) {
-        response.json(note)
+    .then(blog => {
+      if (blog) {
+        response.json(blog)
       } else {
         response.status(404).end()
       }
@@ -22,9 +22,11 @@ blogsRouter.get('/:id', (request, response, next) => {
 blogsRouter.post('/', (request, response, next) => {
   const body = request.body
 
-  const note = new Note({
-    content: body.content,
-    important: body.important || false,
+  const blog = new Blog({
+      title: body.title,
+      author: body.author,
+      url: body.url,
+      likes: body.likes || 0,
   })
 
   note.save()
