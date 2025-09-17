@@ -29,9 +29,9 @@ blogsRouter.post('/', (request, response, next) => {
       likes: body.likes || 0,
   })
 
-  note.save()
-    .then(savedNote => {
-      response.json(savedNote)
+  blog.save()
+    .then(savedBlog => {
+      response.json(savedBlog)
     })
     .catch(error => next(error))
 })
@@ -48,13 +48,15 @@ blogsRouter.put('/:id', (request, response, next) => {
   const body = request.body
 
   const note = {
-    content: body.content,
-    important: body.important,
+    title: body.title,
+    author: body.author,
+    url: body.url,
+    likes: body.likes || 0,
   }
 
-  Blog.findByIdAndUpdate(request.params.id, note, { new: true })
-    .then(updatedNote => {
-      response.json(updatedNote)
+  Blog.findByIdAndUpdate(request.params.id, blog, { new: true })
+    .then(updatedBlog => {
+      response.json(updatedBlog)
     })
     .catch(error => next(error))
 })
