@@ -2,13 +2,13 @@ const blogsRouter = require('express').Router()
 const Blog = require('../models/blog')
 
 blogsRouter.get('/', (request, response) => {
-  Note.find({}).then(notes => {
-    response.json(notes)
+  Blog.find({}).then(blogs => {
+    response.json(blogs)
   })
 })
 
 blogsRouter.get('/:id', (request, response, next) => {
-  Note.findById(request.params.id)
+  Blog.findById(request.params.id)
     .then(note => {
       if (note) {
         response.json(note)
@@ -35,7 +35,7 @@ blogsRouter.post('/', (request, response, next) => {
 })
 
 blogsRouter.delete('/:id', (request, response, next) => {
-  Note.findByIdAndDelete(request.params.id)
+  Blog.findByIdAndDelete(request.params.id)
     .then(() => {
       response.status(204).end()
     })
@@ -50,7 +50,7 @@ blogsRouter.put('/:id', (request, response, next) => {
     important: body.important,
   }
 
-  Note.findByIdAndUpdate(request.params.id, note, { new: true })
+  Blog.findByIdAndUpdate(request.params.id, note, { new: true })
     .then(updatedNote => {
       response.json(updatedNote)
     })
