@@ -24,6 +24,10 @@ app.use(express.static('build'))
 app.use(express.json())
 app.use(middleware.requestLogger)
 
+app.get('/', (req, res) => {
+  res.send('<h1>Blog Working!</h1>')
+})
+
 app.use('/api/blogs', blogsRouter)
 
 app.use(middleware.unknownEndpoint)
