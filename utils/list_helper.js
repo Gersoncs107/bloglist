@@ -1,5 +1,7 @@
 const dummy = (blogs) => {
-  return 1
+  if (Array.isArray(blogs)) {
+    return 1
+  }
 }
 
 const totalLikes = (blogs) => {
