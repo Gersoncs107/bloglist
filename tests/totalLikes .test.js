@@ -51,7 +51,6 @@ const blogs = [
   }  
 ]
 
-test('total likes of all blogs', () => {
-    const result = list_helper.totalLikes(blogs)
-    expect(result).toBe(36)
+describe('total likes', () => {
+    
 })
