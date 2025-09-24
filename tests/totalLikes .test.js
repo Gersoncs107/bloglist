@@ -63,14 +63,7 @@ describe('total likes', () => {
       __v: 0}
     ]
 
-    const listWithManyBlogs = [
-        {likes: 7},
-        {likes: 5},
-        {likes: 12},
-        {likes: 10},
-        {likes: 0},
-        {likes: 2}
-    ]
+    const listWithManyBlogs = blogs
 
     test('of empty list is zero', () => {
         const result = list_helper.totalLikes(listWithNoBlogs)
