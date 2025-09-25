@@ -58,8 +58,8 @@ describe('favorite blog', () => {
     test('of a bigger list is the blog with most likes', () => {
         const result = list_helper.favoriteBlog(favorite)
         expect(result).toEqual({
-            _id: "5a422b3a1b54a676234d17f9",
             title: "Canonical string reduction",
+            author: "Edsger W. Dijkstra",
             likes: 12
         })
     })
