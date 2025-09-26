@@ -33,15 +33,15 @@ const mostBlogs = (blogs) => {
 }
 
 const mostLikes = (blogs) => {
-  if(blogs.length === 0) return null
+  if (blogs.length === 0) return null
   const likesCount = {}
   blogs.forEach(blog => {
-    likesCount[blog.likes] = (likesCount[blog.likes] || 0) +1
+    likesCount[blog.author] = (likesCount[blog.author] || 0) + blog.likes
   })
-  const maxLikes = Object.keys(likesCount).reduce((a, b) => likesCount[a] > likesCount[b] ? a : b)
+  const maxAuthor = Object.keys(likesCount).reduce((a, b) => likesCount[a] > likesCount[b] ? a : b)
   return {
-    author: maxLikes,
-    likes: likesCount[maxLikes]
+    author: maxAuthor,
+    likes: likesCount[maxAuthor]
   }
 }
 
