@@ -18,10 +18,11 @@
     "mongoose": "^8.18.1"
   },
   "devDependencies": {
+    "cross-env": "^10.1.0",
     "jest": "^29.7.0",
     "nodemon": "^3.1.10"
   },
-   "jest": {
-   "testEnvironment": "node"
- }
+  "jest": {
+    "testEnvironment": "node"
+  }
 }
