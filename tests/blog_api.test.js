@@ -14,3 +14,9 @@ test('blogs are returned as json', async () => {
 afterAll(async () => {
   await mongoose.connection.close()
 })
+
+test('there are two blogs', async () => {
+  const response = await api.get('/api/notes')
+
+  expect(response.body).toHaveLength(2)
+})
