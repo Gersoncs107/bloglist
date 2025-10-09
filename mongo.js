@@ -30,14 +30,14 @@ const blog2 = new Blog({
     likes: 0,
 })
 
-Promise.all([note1.save(), note2.save()])
+Promise.all([blog1.save(), blog2.save()])
   .then(() => {
-    console.log('Notas salvas!')
+    console.log('Blogs salvos!')
     return Note.find({})
   })
   .then(result => {
-    result.forEach(note => {
-      console.log(note)
+    result.forEach(blog => {
+      console.log(blog)
     })
     mongoose.connection.close()
   })
