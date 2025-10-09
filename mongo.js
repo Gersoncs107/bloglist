@@ -14,16 +14,20 @@ const blogSchema = new mongoose.Schema({
   likes: Number,
 })
 
-const Note = mongoose.model('Note', blogSchema)
+const Blog = mongoose.model('Note', blogSchema)
 
-const note1 = new Note({
-  content: 'HTML is Easy',
-  important: true,
+const blog1 = new Blog({
+    title: 'Search blog',
+    author: 'Bing',
+    url: 'www.bing.com',
+    likes: 0,
 })
 
-const note2 = new Note({
-  content: 'CSS is hard',
-  important: false,
+const blog2 = new Blog({
+    title: 'DuckGo',
+    author: '',
+    url: 'www.duckgo.com',
+    likes: 0,
 })
 
 Promise.all([note1.save(), note2.save()])
