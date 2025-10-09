@@ -8,8 +8,10 @@ mongoose.set('strictQuery',false)
 mongoose.connect(url)
 
 const blogSchema = new mongoose.Schema({
-  content: String,
-  important: Boolean,
+  title: String,
+  author: String,
+  url: String,
+  likes: Number,
 })
 
 const Note = mongoose.model('Note', blogSchema)
