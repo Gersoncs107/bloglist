@@ -16,7 +16,7 @@ afterAll(async () => {
 })
 
 test('there are two blogs', async () => {
-  const response = await api.get('/api/notes')
+  const response = await api.get('/api/blogs')
 
   expect(response.body).toHaveLength(2)
 })
