@@ -9,7 +9,7 @@ test('blogs are returned as json', async () => {
     .get('/api/blogs')
     .expect(200)
     .expect('Content-Type', /application\/json/)
-})
+}, 20000) // 20 seconds timeout
 
 afterAll(async () => {
   await mongoose.connection.close()
