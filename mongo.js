@@ -7,12 +7,12 @@ const url = process.env.TEST_MONGODB_URI
 mongoose.set('strictQuery',false)
 mongoose.connect(url)
 
-const blogsSchema = new mongoose.Schema({
+const blogSchema = new mongoose.Schema({
   content: String,
   important: Boolean,
 })
 
-const Note = mongoose.model('Note', blogsSchema)
+const Note = mongoose.model('Note', blogSchema)
 
 const note1 = new Note({
   content: 'HTML is Easy',
