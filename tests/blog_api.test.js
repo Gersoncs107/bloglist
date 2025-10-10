@@ -38,6 +38,15 @@ test('all blogs are returned', async () => {
   expect(response.body).toHaveLength(initialBlogs.length)
 })
 
+test('a specific blog is within the returned blogs', async () => {
+  const response = await api.get('/api/blogs')
+  const titles = response.body.map(r => r.title)
+
+  expect(titles).toContain(
+    'Search blog'
+  )
+})
+
 afterAll(async () => {
   await mongoose.connection.close();
 });
