@@ -25,7 +25,7 @@ const blog1 = new Blog({
 
 const blog2 = new Blog({
     title: 'DuckGo',
-    author: '',
+    author: 'DuckDuckGo',
     url: 'www.duckgo.com',
     likes: 0,
 })
