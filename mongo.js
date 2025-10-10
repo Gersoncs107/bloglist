@@ -14,7 +14,7 @@ const blogSchema = new mongoose.Schema({
   likes: Number,
 })
 
-const Blog = mongoose.model('Note', blogSchema)
+const Blog = mongoose.model('Blog', blogSchema)
 
 const blog1 = new Blog({
     title: 'Search blog',
