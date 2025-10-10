@@ -7,16 +7,16 @@ const api = supertest(app);
 
 const initialBlogs = [
   {
-    title: 'Primeiro blog',
-    author: 'Autor 1',
-    url: 'http://primeiro.com',
-    likes: 1
+    title: 'Search blog',
+    author: 'Bing',
+    url: 'www.bing.com',
+    likes: 0,
   },
   {
-    title: 'Segundo blog',
-    author: 'Autor 2',
-    url: 'http://segundo.com',
-    likes: 2
+    title: 'DuckGo',
+    author: 'DuckDuckGo',
+    url: 'www.duckgo.com',
+    likes: 0,
   }
 ];
 
