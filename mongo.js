@@ -33,7 +33,7 @@ const blog2 = new Blog({
 Promise.all([blog1.save(), blog2.save()])
   .then(() => {
     console.log('Blogs salvos!')
-    return Note.find({})
+    return Blog.find({})
   })
   .then(result => {
     result.forEach(blog => {
