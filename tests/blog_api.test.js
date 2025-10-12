@@ -23,7 +23,7 @@ const initialBlogs = [
 beforeEach(async () => {
   await Blog.deleteMany({});
   await Blog.insertMany(initialBlogs);
-});
+}, 20000);
 
 test('blogs are returned as json', async () => {
   await api
@@ -104,7 +104,7 @@ test('blog without title and url is not added', async ()=> {
   .expect(400)
   .expect('Content-Type', /application\/json/)
 
-});
+})
 
 afterAll(async () => {
   await mongoose.connection.close();
