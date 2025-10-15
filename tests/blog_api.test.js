@@ -49,8 +49,9 @@ test('a specific blog is within the returned blogs', async () => {
   })
 })
 
-describe('viewing a specific blog', () => {
-  test('unique identifier property of the blog posts is named id', async () => {
+
+
+test('unique identifier property of the blog posts is named id', async () => {
   const response = await api.get('/api/blogs')
   const blogs = response.body
   blogs.forEach(blog => {
@@ -58,7 +59,7 @@ describe('viewing a specific blog', () => {
   })
 })
 
-  test('a new blog can be added', async () => {
+test('a new blog can be added', async () => {
   const newBlog = {
     title: 'New blog',
     author: 'Test Author',
@@ -77,14 +78,7 @@ describe('viewing a specific blog', () => {
 
   expect(response.body).toHaveLength(initialBlogs.length + 1);
   expect(titles).toContain('New blog');
-  })
-
-  
-})
-
-
-
-
+});
 
 test('if likes property is missing from the request, it will default to 0', async () => {
   const newBlog = {
