@@ -49,65 +49,66 @@ test('a specific blog is within the returned blogs', async () => {
   })
 })
 
-
-
-test('unique identifier property of the blog posts is named id', async () => {
-  const response = await api.get('/api/blogs')
-  const blogs = response.body
-  blogs.forEach(blog => {
-    expect(blog.id).toBeDefined()
+describe('blog properties', () => {
+  test('unique identifier property of the blog posts is named id', async () => {
+    const response = await api.get('/api/blogs')
+    const blogs = response.body
+    blogs.forEach(blog => {
+      expect(blog.id).toBeDefined()
+    })
   })
 })
 
-test('a new blog can be added', async () => {
-  const newBlog = {
-    title: 'New blog',
-    author: 'Test Author',
-    url: 'www.testblog.com',
-    likes: 5
-  };
+describe('adding blogs', () => {
+  test('a new blog can be added', async () => {
+    const newBlog = {
+      title: 'New blog',
+      author: 'Test Author',
+      url: 'www.testblog.com',
+      likes: 5
+    };
 
-  await api
-    .post('/api/blogs')
-    .send(newBlog)
-    .expect(201)
-    .expect('Content-Type', /application\/json/);
+    await api
+      .post('/api/blogs')
+      .send(newBlog)
+      .expect(201)
+      .expect('Content-Type', /application\/json/);
 
-  const response = await api.get('/api/blogs');
-  const titles = response.body.map(r => r.title);
+    const response = await api.get('/api/blogs');
+    const titles = response.body.map(r => r.title);
 
-  expect(response.body).toHaveLength(initialBlogs.length + 1);
-  expect(titles).toContain('New blog');
-});
+    expect(response.body).toHaveLength(initialBlogs.length + 1);
+    expect(titles).toContain('New blog');
+  });
 
-test('if likes property is missing from the request, it will default to 0', async () => {
-  const newBlog = {
-    title: 'Blog without likes',
-    author: 'Test Author',
-    url: 'www.nolikes.com'
-  };
+  test('if likes property is missing from the request, it will default to 0', async () => {
+    const newBlog = {
+      title: 'Blog without likes',
+      author: 'Test Author',
+      url: 'www.nolikes.com'
+    };
 
-  const response = await api
-    .post('/api/blogs')
-    .send(newBlog)
-    .expect(201)
-    .expect('Content-Type', /application\/json/);
+    const response = await api
+      .post('/api/blogs')
+      .send(newBlog)
+      .expect(201)
+      .expect('Content-Type', /application\/json/);
 
-  expect(response.body.likes).toBe(0);
-});
+    expect(response.body.likes).toBe(0);
+  });
 
-test('blog without title and url is not added', async ()=> {
-  const newBlog = {
-    author: 'Test Author',
-    likes: 5
-  }
+  test('blog without title and url is not added', async ()=> {
+    const newBlog = {
+      author: 'Test Author',
+      likes: 5
+    }
 
-  await api
-  .post('/api/blogs')
-  .send(newBlog)
-  .expect(400)
-  .expect('Content-Type', /application\/json/)
-
+    await api
+      .post('/api/blogs')
+      .send(newBlog)
+      .expect(400)
+      .expect('Content-Type', /application\/json/)
+  })
 })
 
 afterAll(async () => {
