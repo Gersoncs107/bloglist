@@ -49,7 +49,9 @@ test('a specific blog is within the returned blogs', async () => {
   })
 })
 
-
+describe('viewing a specific blog', () => {
+  
+})
 
 test('unique identifier property of the blog posts is named id', async () => {
   const response = await api.get('/api/blogs')
