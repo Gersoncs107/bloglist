@@ -25,7 +25,8 @@ beforeEach(async () => {
   await Blog.insertMany(initialBlogs);
 }, 20000);
 
-test('blogs are returned as json', async () => {
+describe('when there is initially some blogs saved', () => {
+  test('blogs are returned as json', async () => {
   await api
     .get('/api/blogs')
     .expect(200)
@@ -45,7 +46,10 @@ test('a specific blog is within the returned blogs', async () => {
   expect(titles).toContain(
     'Search blog'
   )
+  })
 })
+
+
 
 test('unique identifier property of the blog posts is named id', async () => {
   const response = await api.get('/api/blogs')
