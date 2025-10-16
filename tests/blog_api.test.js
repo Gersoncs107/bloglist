@@ -111,6 +111,23 @@ describe('adding blogs', () => {
   })
 })
 
+describe('deleting a blog', () => {
+  test('a blog can be deleted', async () => {
+    const blogsAtStart = await api.get('/api/blogs');
+    const blogToDelete = blogsAtStart.body[0]
+    await api
+      .delete(`/api/blogs/${blogToDelete.id}`)
+      .expect(204)
+    const blogsAtEnd = await api.get('/api/blogs');
+
+    expect(blogsAtEnd.body).toHaveLength(
+      initialBlogs.length - 1
+    )
+    const titles = blogsAtEnd.body.map(r => r.title);
+    expect(titles).not.toContain(blogToDelete.title);
+  })
+})
+
 afterAll(async () => {
   await mongoose.connection.close();
 });
