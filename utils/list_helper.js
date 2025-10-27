@@ -1,3 +1,5 @@
+const User = require
+
 const dummy = (blogs) => {
   if (Array.isArray(blogs)) {
     return 1
@@ -44,6 +46,8 @@ const mostLikes = (blogs) => {
     likes: likesCount[maxAuthor]
   }
 }
+
+
 
 module.exports = {
   dummy,
