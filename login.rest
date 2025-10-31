@@ -13,8 +13,8 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hZHJ1Z2FzeCIsImlkIjoiNjhmZWM1NjExOTUyZTdmNWM2ZTE1MGU3IiwiaWF0IjoxNzYxODYyMjM0fQ.iMCIxx-1BX-ookHJhYnIBTnW9HDRqXdBj0u7uS3TAL4
 
 {
-    "title": "Blog criado via REST Client",
-    "author": "Madruga",
-    "url": "http://blogdocrmadruga.com",
+    "title": "Linkedin Site",
+    "author": "Linkedin Corporation",
+    "url": "linkedin.com",
     "likes": 0
 }
