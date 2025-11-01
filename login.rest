@@ -54,3 +54,45 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hZ
 DELETE http://localhost:3003/api/blogs/6905605275d05b7195a4eff4
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hZHJ1Z2FzeCIsImlkIjoiNjhmZWM1NjExOTUyZTdmNWM2ZTE1MGU3IiwiaWF0IjoxNzYxODYyMjM0fQ.iMCIxx-1BX-ookHJhYnIBTnW9HDRqXdBj0u7uS3TAL4
+
+
+### Erro: username curto
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+  "username": "ma",
+  "password": "salada"
+}
+
+###
+
+### Erro: senha curta
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+  "username": "madrugasx2",
+  "password": "sa"
+}
+
+###
+
+### Erro: username duplicado
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+  "username": "madrugasx",
+  "password": "outrasenha"
+}
+
+###
+
+### Erro: campos faltando
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+  "name": "Teste"
+}
