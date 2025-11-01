@@ -14,8 +14,7 @@ Content-Type: application/json
     "username": "root",
     "password": "salainen"
 }
-###
-// user maduragasx token below
+### User maduragasx token below
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hZHJ1Z2FzeCIsImlkIjoiNjhmZWM1NjExOTUyZTdmNWM2ZTE1MGU3IiwiaWF0IjoxNzYxODYyMjM0fQ.iMCIxx-1BX-ookHJhYnIBTnW9HDRqXdBj0u7uS3TAL4
@@ -26,8 +25,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hZ
     "url": "linkedin.com",
     "likes": 0
 }
-###
-//user root token below
+### User root token below
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY4ZmVjNTNiMTk1MmU3ZjVjNmUxNTBlNSIsImlhdCI6MTc2MTg3MzgwNH0.en4jPPoggpUER78OQwPlUH1mAgGr_1jvOC7AaCKFWLk
