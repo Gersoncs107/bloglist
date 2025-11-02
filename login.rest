@@ -7,6 +7,8 @@ Content-Type: application/json
     "password": "salada"
 }
 
+###
+
 ### Login as root user
 POST http://localhost:3003/api/login
 Content-Type: application/json
@@ -15,6 +17,9 @@ Content-Type: application/json
     "username": "root",
     "password": "salainen"
 }
+
+###
+
 ### User maduragasx token below
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
@@ -26,6 +31,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hZ
     "url": "linkedin.com",
     "likes": 0
 }
+
+###
+
 ### User root token below
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
@@ -38,21 +46,28 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb
     "likes": 0
 }
 
+###
+
 ### Get all blogs
 GET http://localhost:3003/api/blogs
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hZHJ1Z2FzeCIsImlkIjoiNjhmZWM1NjExOTUyZTdmNWM2ZTE1MGU3IiwiaWF0IjoxNzYxODYyMjM0fQ.iMCIxx-1BX-ookHJhYnIBTnW9HDRqXdBj0u7uS3TAL4
+
+###
 
 ### Get all users
 GET http://localhost:3003/api/users
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hZHJ1Z2FzeCIsImlkIjoiNjhmZWM1NjExOTUyZTdmNWM2ZTE1MGU3IiwiaWF0IjoxNzYxODYyMjM0fQ.iMCIxx-1BX-ookHJhYnIBTnW9HDRqXdBj0u7uS3TAL4
 
+###
+
 ### Delete a blog
 DELETE http://localhost:3003/api/blogs/6905605275d05b7195a4eff4
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hZHJ1Z2FzeCIsImlkIjoiNjhmZWM1NjExOTUyZTdmNWM2ZTE1MGU3IiwiaWF0IjoxNzYxODYyMjM0fQ.iMCIxx-1BX-ookHJhYnIBTnW9HDRqXdBj0u7uS3TAL4
 
+###
 
 ### Error: shorter username
 POST http://localhost:3003/api/users
@@ -74,6 +89,7 @@ Content-Type: application/json
   "password": "sa"
 }
 
+###
 
 ### Error: username already taken
 POST http://localhost:3003/api/users
