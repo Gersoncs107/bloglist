@@ -102,7 +102,7 @@ Content-Type: application/json
 
 ###
 
-### Erro: campos faltando
+### Error: invalid user data
 POST http://localhost:3003/api/users
 Content-Type: application/json
 
