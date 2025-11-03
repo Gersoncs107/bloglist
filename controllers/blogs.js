@@ -26,47 +26,88 @@ blogsRouter.get('/:id', async (request, response, next) => {
   }
 })
 
+// blogsRouter.post('/', async (request, response) => {
+//   const body = request.body
+//   const token = getTokenFrom(request)
+
+//   if (!token) {
+//     return response.status(401).json({ error: 'token missing' })
+//   }
+
+//   let decodedToken
+//   try {
+//     decodedToken = jwt.verify(token, process.env.SECRET)
+//   } catch (error) {
+//     return response.status(401).json({ error: 'token invalid' })
+//   }
+
+//   if (!decodedToken.id) {
+//     return response.status(401).json({ error: 'token invalid' })
+//   }
+
+//   const user = await User.findById(decodedToken.id)
+//   if (!user) {
+//     return response.status(404).json({ error: 'user not found' })
+//   }
+
+//   if (!body.title || !body.url) {
+//     return response.status(400).json({ error: 'title or url missing' })
+//   }
+
+//   const blog = new Blog({
+//     title: body.title,
+//     author: body.author || 'Anonymous',
+//     url: body.url,
+//     likes: body.likes || 0,
+//     user: user._id
+//   })
+
+//   const savedBlog = await blog.save()
+//   user.blogs = user.blogs.concat(savedBlog._id)
+//   await user.save()
+
+//   response.status(201).json(savedBlog)
+// })
+
+// controllers/blogs.js
+
 blogsRouter.post('/', async (request, response) => {
   const body = request.body
-  const token = getTokenFrom(request)
 
-  if (!token) {
-    return response.status(401).json({ error: 'token missing' })
-  }
-
-  let decodedToken
-  try {
-    decodedToken = jwt.verify(token, process.env.SECRET)
-  } catch (error) {
-    return response.status(401).json({ error: 'token invalid' })
-  }
-
-  if (!decodedToken.id) {
-    return response.status(401).json({ error: 'token invalid' })
-  }
-
-  const user = await User.findById(decodedToken.id)
-  if (!user) {
-    return response.status(404).json({ error: 'user not found' })
-  }
-
+  // 1. Validações básicas
   if (!body.title || !body.url) {
     return response.status(400).json({ error: 'title or url missing' })
   }
 
+  // 2. Busca o PRIMEIRO usuário do banco
+  const firstUser = await User.findOne()
+  if (!firstUser) {
+    return response.status(400).json({ error: 'no users in database' })
+  }
+
+  // 3. Cria o blog com referência ao usuário
   const blog = new Blog({
     title: body.title,
     author: body.author || 'Anonymous',
     url: body.url,
     likes: body.likes || 0,
-    user: user._id
+    user: firstUser._id  // ← associa ao primeiro usuário
   })
 
   const savedBlog = await blog.save()
-  user.blogs = user.blogs.concat(savedBlog._id)
-  await user.save()
 
-  response.status(201).json(savedBlog)
+  // 4. Adiciona o blog à lista do usuário
+  firstUser.blogs = firstUser.blogs.concat(savedBlog._id)
+  await firstUser.save()
+
+  // 5. Retorna o blog com o usuário populado
+  const populatedBlog = await Blog.findById(savedBlog._id).populate('user', {
+    username: 1,
+    name: 1,
+    id: 1
+  })
+
+  response.status(201).json(populatedBlog)
 })
 
 blogsRouter.put('/:id', async (request, response, next) => {
