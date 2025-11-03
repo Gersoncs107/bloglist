@@ -109,3 +109,19 @@ Content-Type: application/json
 {
   "name": "Teste"
 }
+
+### Criar novo blog (sem token, sem user no body)
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+  "title": "Novo Blog Automático",
+  "author": "Autor X",
+  "url": "https://exemplo.com",
+  "likes": 0
+}
+
+###
+
+### Listar todos os blogs com usuário
+GET http://localhost:3003/api/blogs
