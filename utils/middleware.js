@@ -1,4 +1,6 @@
 const logger = require('./logger')
+const jwt = require('jsonwebtoken')
+
 
 const requestLogger = (request, response, next) => {
   logger.info('Method:', request.method)
