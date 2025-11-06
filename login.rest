@@ -123,5 +123,5 @@ Content-Type: application/json
 
 ###
 
-### Listar todos os blogs com usuário
+### List all blogs with user token
 GET http://localhost:3003/api/blogs
