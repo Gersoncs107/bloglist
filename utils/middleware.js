@@ -2,7 +2,6 @@ const logger = require('./logger')
 const jwt = require('jsonwebtoken')
 const User = require('../models/user')
 
-// Extrai token do cabeçalho Authorization
 const tokenExtractor = (request, response, next) => {
   const authorization = request.get('authorization')
   if (authorization && authorization.startsWith('Bearer ')) {
@@ -13,7 +12,6 @@ const tokenExtractor = (request, response, next) => {
   next()
 }
 
-// (Opcional) Extrai usuário do token e coloca em request.user
 const userExtractor = async (request, response, next) => {
   if (!request.token) {
     request.user = null
