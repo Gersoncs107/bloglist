@@ -30,27 +30,25 @@ blogsRouter.get('/:id', async (request, response, next) => {
   }
 })
 
+// controllers/blogs.js
+
 blogsRouter.post('/', async (request, response) => {
   const body = request.body
 
-  if (!token) {
+  if (!request.token) {
     return response.status(401).json({ error: 'token missing' })
   }
 
   let decodedToken
   try {
-    decodedToken = jwt.verify(token, process.env.SECRET)
+    decodedToken = jwt.verify(request.token, process.env.SECRET)
   } catch (error) {
     return response.status(401).json({ error: 'token invalid' })
   }
 
-  if (!decodedToken.id) {
-    return response.status(401).json({ error: 'token invalid' })
-  }
-
-  const user = await User.findById(decodedToken.id)
+  const user = request.user
   if (!user) {
-    return response.status(404).json({ error: 'user not found' })
+    return response.status(401).json({ error: 'user not found' })
   }
 
   if (!body.title || !body.url) {
@@ -69,7 +67,12 @@ blogsRouter.post('/', async (request, response) => {
   user.blogs = user.blogs.concat(savedBlog._id)
   await user.save()
 
-  response.status(201).json(savedBlog)
+  const populatedBlog = await Blog.findById(savedBlog._id).populate('user', {
+    username: 1,
+    name: 1
+  })
+
+  response.status(201).json(populatedBlog)
 })
 
 
