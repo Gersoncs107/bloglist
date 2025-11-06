@@ -40,9 +40,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY4ZmVjNTNiMTk1MmU3ZjVjNmUxNTBlNSIsImlhdCI6MTc2MTg3MzgwNH0.en4jPPoggpUER78OQwPlUH1mAgGr_1jvOC7AaCKFWLk
 
 {
-    "title": "Root User Blog",
-    "author": "Admin",
-    "url": "rootblog.com",
+    "title": "Blog com middleware",
+    "author": "Root",
+    "url": "https://exemplo.com",
     "likes": 0
 }
 
@@ -63,7 +63,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hZ
 ###
 
 ### Delete a blog
-DELETE http://localhost:3003/api/blogs/6905605275d05b7195a4eff4
+DELETE http://localhost:3003/api/blogs/690bf67a72ff5c1fedae8097
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hZHJ1Z2FzeCIsImlkIjoiNjhmZWM1NjExOTUyZTdmNWM2ZTE1MGU3IiwiaWF0IjoxNzYxODYyMjM0fQ.iMCIxx-1BX-ookHJhYnIBTnW9HDRqXdBj0u7uS3TAL4
 
