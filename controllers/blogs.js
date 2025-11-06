@@ -30,8 +30,6 @@ blogsRouter.get('/:id', async (request, response, next) => {
   }
 })
 
-// controllers/blogs.js
-
 blogsRouter.post('/', async (request, response) => {
   const body = request.body
 
