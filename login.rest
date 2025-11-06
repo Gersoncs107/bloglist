@@ -110,7 +110,7 @@ Content-Type: application/json
   "name": "Teste"
 }
 
-### Criar novo blog (sem token, sem user no body)
+### Createa new blog without token
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
 
