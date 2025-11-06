@@ -32,7 +32,6 @@ blogsRouter.get('/:id', async (request, response, next) => {
 
 blogsRouter.post('/', async (request, response) => {
   const body = request.body
-  const token = getTokenFrom(request)
 
   if (!token) {
     return response.status(401).json({ error: 'token missing' })
