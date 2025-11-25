@@ -3,6 +3,7 @@ const { response } = require('express')
 const Blog = require('../models/blog')
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
+const user = require('../models/user')
 
 const getTokenFrom = request => {
   const authorization = request.get('authorization')
@@ -82,6 +83,7 @@ blogsRouter.put('/:id', async (request, response, next) => {
     author: body.author,
     url: body.url,
     likes: body.likes || 0,
+    user: body.user
   }
 
   const updatedBlog = await Blog.findByIdAndUpdate(request.params.id, blog, { new: true })
