@@ -63,7 +63,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hZ
 ###
 
 ### Delete a blog
-DELETE http://localhost:3003/api/blogs/690bf67a72ff5c1fedae8097
+DELETE http://localhost:3003/api/blogs/68f049ce0bd2a55ad599f155
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY4ZmVjNTNiMTk1MmU3ZjVjNmUxNTBlNSIsImlhdCI6MTc2MjM5MTgzNH0.8j9TZOUSx3ndwSKcKZow3Nup2zB6EUFGmmya_fiKrAw
 
