@@ -1,4 +1,5 @@
 require('dotenv').config()
+const { type } = require('express/lib/response')
 const mongoose = require('mongoose')
 
 const blogSchema = new mongoose.Schema({
@@ -9,7 +10,8 @@ const blogSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
-  }
+  },
+  comments: [{type: String, default: []}]
 })
 
 blogSchema.set('toJSON', {
